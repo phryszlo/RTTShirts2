@@ -1,147 +1,176 @@
 #signInDiv {
-    width: fit-content;
-    margin: 0.2em auto;
-  }
-  
-  .auth-container {
-    z-index: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    max-width: 60vw;
-    height: fit-content;
-    margin: 1em auto;
-    border-radius: 3vmin;
-    background-color: var(--white);
-    /* border: solid black; */
-  }
-  
-  .logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 16vmin;
-    height: 16vmin;
-    font-size: 16px;
-    font-family: 'Noto Sans Mono', monospace;
-    background-color: #004AAD;
-    border: 3px solid var(--tan-4);
-    border-radius: 50%;
-  }
-  
-  .login-toggle {
-    cursor: pointer;
-    text-align: center;
-    background-color: #A8D3E9;
-    color: black;
-  }
-  .login-toggle:hover {
-    cursor: pointer;
-    text-align: center;
-    background-color: #004AAD;
-    color: white;
-  }
-  .cafe{
-    text-align: center;
-  }
-  .cafe-name{
-    text-align: center;
-  }
-  .form-container {
-    padding: 3vmin;
-    /* margin-top: 25.5%; */
-    background-color: var(--white);
-    border: .1vmin solid var(--tan-3);
-    min-width: 40vw;
-    height: fit-content;
-    font-family: 'Rajdhani';
-    /* border: solid black; */
-  }
-  
-  p.error-message {
-    color: var(--orange);
-    text-align: center;
-  }
-  
-  form {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 1.25vmin;
-    color: var(--text-light);
-  }
-  
-  label {
-    font-size: 2vmin;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-    min-width: 50%;
-  }
-  
-  input {
-    padding: 1vmin;
-    font-size: 2vmin;
-    border: .1vmin solid var(--tan-3);
-    border-radius: .5vmin;
-    color: var(--text-dark);
-    background-image: none !important;
-    outline: none;
-  }
-  
-  input:focus {
-    border-color: var(--orange);
-  }
-  
-  input::placeholder {
-    opacity: .5;
-  }
-  
-  button,
-  a.button {
-    margin: 1vmin;
-    padding: 1vmin;
-    color: var(--white);
-    background-color: #004AAD;
-    font-size: 2vmin;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    border: .1vmin solid var(--tan-2);
-    border-radius: .5vmin;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  button.btn-sm {
-    font-size: 1.5vmin;
-    padding: .6vmin .8vmin;
-  }
-  
-  button.btn-xs {
-    font-size: 1vmin;
-    padding: .4vmin .5vmin;
-  }
-  
-  button:disabled,
-  form:invalid button[type="submit"] {
-    cursor: not-allowed;
-    background-color: #A8D3E9;
-  }
-  
-  button[type="submit"] {
-    grid-column: span 2;
-    margin: 1vmin 0 0;
+  width: fit-content;
+  margin: 0.2em auto;
+}
 
+.auth-container {
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 60vw;
+  height: fit-content;
+  margin: 1em auto;
+  border-radius: 3vmin;
+  background-color: var(--white);
+  /* border: solid black; */
+}
 
-    /* Google Auth Styling */
-  }
-   /* .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 16vmin;
+  height: 16vmin;
+  font-size: 16px;
+  font-family: 'Noto Sans Mono', monospace;
+  background-color: #004AAD;
+  border: 3px solid var(--tan-4);
+  border-radius: 50%;
+}
+
+.login-toggle {
+  cursor: pointer;
+  text-align: center;
+  background-color: #A8D3E9;
+  color: black;
+}
+
+.login-toggle:hover {
+  cursor: pointer;
+  text-align: center;
+  background-color: #004AAD;
+  color: white;
+}
+
+.cafe {
+  text-align: center;
+}
+
+.cafe-name {
+  text-align: center;
+}
+
+.form-container {
+  padding: 3vmin;
+  /* margin-top: 25.5%; */
+  background-color: var(--white);
+  border: .1vmin solid var(--tan-3);
+  min-width: 40vw;
+  height: fit-content;
+  font-family: 'Rajdhani';
+  /* border: solid black; */
+}
+
+p.error-message {
+  color: var(--orange);
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.25vmin;
+  color: var(--text-light);
+}
+
+label {
+  font-size: 2vmin;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-width: 50%;
+}
+
+input {
+  padding: 1vmin;
+  font-size: 2vmin;
+  border: .1vmin solid var(--tan-3);
+  border-radius: .5vmin;
+  color: var(--text-dark);
+  background-image: none !important;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--orange);
+}
+
+input::placeholder {
+  opacity: .5;
+}
+
+button,
+a.button {
+  margin: 1vmin;
+  padding: 1vmin;
+  color: var(--white);
+  background-color: #004AAD;
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+}
+
+button.btn-sm {
+  font-size: 1.5vmin;
+  padding: .6vmin .8vmin;
+}
+
+button.btn-xs {
+  font-size: 1vmin;
+  padding: .4vmin .5vmin;
+}
+
+button:disabled,
+form:invalid button[type="submit"] {
+  cursor: not-allowed;
+  background-color: #A8D3E9;
+}
+
+button[type="submit"] {
+  grid-column: span 2;
+  margin: 1vmin 0 0;
+
+}
+
+.promo-toggle-btn {
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+.promo-apply-container {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+}
+.promo-apply-container > * {
+  margin: 0;
+}
+
+.promo-code {
+  width: 85%;
+  height: 2.2em;
+}
+
+.apply-btn {
+  width: 15%;
+}
+
+/* Google Auth Styling */
+/* .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{
     border: solid black;
     position: absolute;
     margin-top: 10px;
   }  */
-  /* .haAclf{
+/* .haAclf{
     border: solid black;
   }
   #container{

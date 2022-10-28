@@ -1,15 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import { useEffect } from 'react';
 
 function Summary({ cartItems }) {
   const [show, setShow] = useState();
   const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
+  const [cartSubtotal, setCartSubtotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
+
+
+  useEffect(() => {
+    try {
+      calculatePrice();
+    } catch (error) {
+      console.log(`useEffect[cartItems] error: ${error}`);
+    }
+  }, [cartItems])
+
+  useEffect(() => {
+    try {
+    } catch (error) {
+      console.log(`useEffect[cartItems] error: ${error}`);
+    }
+  }, [cartSubtotal])
 
   const calculatePrice = () => {
     let total = 0.00, count = 0;
@@ -19,15 +36,19 @@ function Summary({ cartItems }) {
       count += product.qty;
     })
     total -= (total * discount);
-    alert(`${count} items totalling $${parseFloat(total).toFixed(2)}`)
+    setCartSubtotal(total);
   }
+
   function applyDiscount() {
     try {
-      if (promoCode === 'PERSCHOLAS') setDiscount(.1)
+      if (promoCode === 'PERSCHOLAS') {
+        setDiscount(.1)
+      }
       else {
         console.log(`code no good`);
         setDiscount(0);
       }
+      calculatePrice();
     } catch (error) {
       console.log(`applyDiscount error: ${error}`);
     }
@@ -40,7 +61,6 @@ function Summary({ cartItems }) {
   return (
     <div className="summary-component">
       <h5 className="summary-title">Summary</h5>
-      <button type="button" onClick={() => calculatePrice()}>test add</button>
       <div className="summary-display">
         {show ?
           <button className="promo-toggle-btn" onClick={toggleShow}>
@@ -72,13 +92,22 @@ function Summary({ cartItems }) {
 
 
         <ListGroup>
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-          <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          <ListGroup.Item>
+            <span className="cart-value-label">Subtotal: </span>
+            <span className="cart-value">${cartSubtotal && cartSubtotal.toFixed(2)}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span className="cart-value-label">Estimated Shipping: </span>
+            <span className="cart-value">$5.00</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span className="cart-value-label">Estimated Tax: </span>
+            <span className="cart-value">
+              ${cartSubtotal && (cartSubtotal * .07).toFixed(2)}
+              </span>
+          </ListGroup.Item>
+          <Button className="checkout-btn">CHECKOUT</Button>
         </ListGroup>
-
         {/* 
         Summary
 Do you have a Promo Code?

@@ -15,12 +15,12 @@ function Cart({ cartItems, addToCart, removeFromCart }) {
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
                   {product.detail}<br />
-                  {product.price}
+                  <span className="product-price"> {`${product.price} each`}</span>
                 </Card.Text>
                 <div className="inc-dec-cart">
                   <span className="card-count">{product.qty}</span>
-                  <Button id={product.id} variant="primary" onClick={(e) => addToCart(e.target.id)}>+</Button>
-                  <Button id={product.id} variant="primary" onClick={(e) => removeFromCart(e.target.id)}>-</Button>
+                  <Button id={product.id} variant="primary" size="sm" onClick={(e) => addToCart(e.target.id)}>+</Button>
+                  <Button id={product.id} variant="primary" size="sm" onClick={(e) => removeFromCart(e.target.id)}>-</Button>
                 </div>
               </Card.Body>
             </Card>

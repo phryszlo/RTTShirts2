@@ -68,21 +68,7 @@ function Summary({ cartItems }) {
           :
           ''
         }
-        {/* <ToggleVisibility className="promo-toggle">
-          <span className="promo-apply-container">
-            <input
-              className="promo-code"
-              type="text"
-              placeholder="Enter promo code"
-              value={promoCode}
-              onChange={(e) => setPromoCode(e.target.value)} />
-            <button className="apply-btn" type="button" onClick={
-              () => applyDiscount()
-            }>
-              apply
-            </button>
-          </span>
-        </ToggleVisibility> */}
+
         {/* 
         Summary
 Do you have a Promo Code?

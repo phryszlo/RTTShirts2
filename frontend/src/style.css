@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Blaka+Ink&family=Bungee+Shade&family=Butcherman&family=Crimson+Text&family=Faster+One&family=Gemunu+Libre&family=Mochiy+Pop+One&family=Molle&family=Montserrat:wght@300;400&family=Noto+Sans+Mono:wght@300&family=Overpass&family=Rajdhani&display=swap');
+
+
+/* CSS Custom Properties */
+:root {
+  --white: #FFFFFF;
+  --tan-1: #FBF9F6;
+  --tan-2: #E7E2DD;
+  --tan-3: #E2D9D1;
+  --tan-4: #D3C1AE;
+  --orange: #F67F00;
+  --text-light: #968c84;
+  --text-dark: #615954;
+  --console: lime;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  /* border: solid aqua; */
+}
+
+/* 'Gemunu Libre'
+'Mochiy Pop One'
+'Molle'
+'Montserrat'
+'Noto Sans Mono'
+'Overpass' */
+
+body {
+  margin: 0;
+  font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  /* padding: 2vmin; */
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.App {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+.content-shell {
+  min-height: 100vh;
+}
+
+/* #region NAVBAR */
+.nav-bar {
+  /* display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 2fr 1fr; */
+  z-index: 66;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: .3px solid var(--text-dark);
+  width: 100vw;
+  height: 4em;
+  letter-spacing: .15pc;
+  padding: 0;
+  margin: 0;
+}
+.nav-container {
+  margin: 0;
+}
+
+h1.nav-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-login {
+  position: absolute;
+  right: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  padding-top: .6em;
+  /* border: solid fuchsia; */
+}
+.g-name {
+  font-size: 12px;
+}
+.g-profile-img {
+  border-radius: 50%;
+  height: 2.55em;
+}
+.g-signout {
+  height: 1.6em;
+  width: 3em;
+  line-height: 10px;
+  font-size: 12px;
+  border-radius: 15%;
+}
+
+.add-to-cart-btn {
+  z-index: 100;
+  position: absolute;
+}
+
+.spacer {
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* border: solid orangered; */
+}
+
+.nav-links a {
+  text-decoration: none;
+  text-shadow: .4px .4px var(--white);
+}
+
+.or {
+  padding: 0 0 1em 0;
+}
+

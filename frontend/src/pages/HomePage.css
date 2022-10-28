@@ -1,0 +1,130 @@
+* {
+  background-color: lightgray;
+}
+.cornerLogo {
+  position: absolute;
+  margin-left: -45%;
+  width: 120px;
+}
+.cartButton {
+  position: absolute;
+  margin-left: 80%;
+  margin-top: 20px;
+}
+
+.logo-main {
+  display: flex;
+  margin: 10px 15px 15px 10px;
+  right: 10px;
+  padding-top: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logOut {
+  display: flex;
+  position: absolute;
+  right: 1em;
+}
+
+.googleStuff {
+  display: flex;
+}
+
+.g-signout {
+  padding: 10px;
+  width: fit-content;
+  vertical-align: middle;
+  padding-bottom: 19px;
+  margin-left: 9.2px;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: flex;
+  color: blue;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-right: 2%;
+  background-color: whitesmoke;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #183153;
+  color: white;
+}
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+.bannerImage {
+  width: 100%;
+}
+.productContainer {
+  /* border: solid black; */
+  width: 70%;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: 15%;
+  display: flex;
+}
+.shirtContainer {
+  display: flex;
+  flex-flow: wrap;
+  /* border: solid black; */
+  width: 100%;
+  height: 90%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.shirtImage {
+  /* border: solid black; */
+  display: flex;
+  width: 90%;
+  height: 70%;
+  margin-left: 5%;
+  justify-content: center;
+}
+.itemDescrip {
+  /* border: solid black; */
+  display: flex;
+  text-align: center;
+  width: 90%;
+  height: 20%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.addToCart {
+  /* border: solid black; */
+  background-color: #183153;
+  margin-left: 40%;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 5px;
+}
+.shirt {
+  height: 100%;
+  width: max-content;
+}
+.carousel {
+  margin: auto;
+  width: 85%;
+}
+.carouselImage {
+  width: 60%;
+  height: 100%;
+  margin-left: 20%;
+}
+.carousel-indicators {
+  display: none;
+}

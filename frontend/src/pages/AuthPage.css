@@ -139,30 +139,12 @@ button[type="submit"] {
 
 }
 
-.promo-toggle-btn {
-  color: black;
-  background-color: transparent;
-  border: none;
-}
 
-.promo-apply-container {
-  display: flex;
-  align-items: center;
-  width: 85%;
-  margin: auto;
-}
-.promo-apply-container > * {
-  margin: 0;
-}
 
-.promo-code {
-  width: 85%;
-  height: 2.2em;
-}
-
-.apply-btn {
-  width: 15%;
-}
+/* 
+p, .card, .bs-card, .card-body, .inc-dec-cart, .card-img-top, .card-text, .card-title {
+  background-color: #fffc;;
+} */
 
 /* Google Auth Styling */
 /* .nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb{

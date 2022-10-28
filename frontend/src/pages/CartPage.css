@@ -71,3 +71,57 @@
   .inc-dec-cart span {
   padding: 0 1em;
   }
+
+  
+.promo-toggle-btn {
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+.promo-apply-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+.promo-apply-container > * {
+  margin: 0;
+}
+
+.promo-code {
+  width: 85%;
+  height: 2.2em;
+}
+
+
+button,
+a.button {
+  margin: 1vmin;
+  padding: 1vmin;
+  color: var(--white);
+  background-color: #004AAD;
+  font-size: 2vmin;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: .1vmin solid var(--tan-2);
+  border-radius: .5vmin;
+  outline: none;
+  cursor: pointer;
+}
+.apply-btn {
+  /* width: 15%; */
+  padding: .27em .7em;
+  background-color: #004AAD;
+
+}
+
+.list-group {
+  margin-top: 1em;
+}
+.list-group-item {
+  background-color: #fff5;
+  width: 90%;
+  margin: auto;
+}

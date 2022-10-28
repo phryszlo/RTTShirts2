@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import Form from 'react-bootstrap/Form';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
 import { useEffect } from 'react';
 
 function Summary({ cartItems }) {
   const [show, setShow] = useState();
-  const [promoCode, setPromoCode] = useState(null);
+  const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
 
   const calculatePrice = () => {
@@ -23,8 +25,8 @@ function Summary({ cartItems }) {
     try {
       if (promoCode === 'PERSCHOLAS') setDiscount(.1)
       else {
-         console.log(`code no good`);
-         setDiscount(0);
+        console.log(`code no good`);
+        setDiscount(0);
       }
     } catch (error) {
       console.log(`applyDiscount error: ${error}`);
@@ -32,7 +34,6 @@ function Summary({ cartItems }) {
   }
 
   function toggleShow() {
-    console.log(`something toggled it`);
     setShow(!show);
   }
 
@@ -58,16 +59,25 @@ function Summary({ cartItems }) {
               placeholder="Enter promo code"
               value={promoCode}
               onChange={(e) => setPromoCode(e.target.value)} />
-            <button
+            <Button
               className="apply-btn"
               type="button"
               onClick={() => applyDiscount()}>
               apply
-            </button>
+            </Button>
           </span>
           :
           ''
         }
+
+
+        <ListGroup>
+          <ListGroup.Item>Cras justo odio</ListGroup.Item>
+          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+          <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+          <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+        </ListGroup>
 
         {/* 
         Summary

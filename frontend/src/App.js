@@ -1,7 +1,7 @@
 import './style.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+// import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 // my components etc.
 import { getCartItems, getUser, logOut, putCartInStorage } from './utilities/users-service'
@@ -11,9 +11,9 @@ import CartPage from './pages/CartPage';
 import tShirts from './data/data';
 import Navbar from './components/NB';
 import Testimonial from './components/Testimonial.jsx';
-import Mappy from './pages/Mappy';
+import FindStorePage from './pages/FindStorePage';
+import Map from './pages/Map';
 
-const { REACT_APP_GOOGLE_MAPS_API_KEY } = process.env;
 // REACT_APP_GOOGLE_MAPS_API_KEY=AIzaSyB-AJWcIWytaWPIQ5HHFIOgMzGDRfNVhTA
 
 
@@ -26,21 +26,16 @@ function App() {
 
   const navigate = useNavigate();
 
-
-  useEffect(() => {
-    console.log(`maps api key: ${REACT_APP_GOOGLE_MAPS_API_KEY}`)
-  }, [])
-
   useEffect(() => {
     try {
       // console.log(`initial cartItems: ${JSON.stringify(cartItems)}`);
-      console.log(`email going to storage: ${user && Object.keys(user).length > 0 && user.email}`);
-      console.log(`email going to storage: ${googleUser && Object.keys(googleUser).length > 0 && googleUser.email}`);
+      // console.log(`email going to storage: ${user && Object.keys(user).length > 0 && user.email}`);
+      // console.log(`email going to storage: ${googleUser && Object.keys(googleUser).length > 0 && googleUser.email}`);
 
       // don't save an empty cart at this point. storage cart should only be cleared explicitly.
       if (cartItems.length === 0) return;
       if (user && user.email) {
-        console.log(`putting user ${user.email} in storage`);
+        console.log(`putting user ${user.email} in useCart storage`);
         console.log(`cartItems (useff[cartitems]: ${JSON.stringify(JSON.parse(localStorage.getItem("userCart"))?.cartItems)}`)
         putCartInStorage(cartItems, user.email);
       }
@@ -127,53 +122,47 @@ function App() {
     // navigate('/');
   }
 
-  const render = (status) => {
-    if (status === Status.LOADING) return <h3>{status} ..</h3>;
-    if (status === Status.FAILURE) return <h3>{status} ...</h3>;
-    return null;
-    // return <Spinner />;
-  };
-  const center = { lat: -34.397, lng: 150.644 };
-  const zoom = 4;
-  return (
-    <div className="App">
-
-      <Navbar
-        handleSignOut={handleSignOut}
-        googleUser={googleUser}
-        user={user}
-        setUser={setUser}
-        cartCount={cartCount}
-        setGoogleUser={setGoogleUser}
-        setCartItems={setCartItems}
-      />
-      {user || (Object.keys(googleUser).length !== 0) ?
-        <div className="content-shell">
-          <Routes>
-            <Route path="/" element={<HomePage0 addToCart={addToCart} setCartCount={setCartCount} />} />
-            <Route path="/testimonial" element={<Testimonial />} />
-            <Route path="/cart" element={<CartPage
-              cartItems={cartItems}
-              products={products}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-              setCartCount={setCartCount} />} />
-            <Route
-              path="/FindStore"
-              element={<Wrapper apiKey={"AIzaSyB-AJWcIWytaWPIQ5HHFIOgMzGDRfNVhTA"} render={render}>
-                <Mappy center={center} zoom={zoom} />
-              </Wrapper>} />
-          </Routes>
-        </div>
-        :
-        <AuthPage
-          setUser={setUser}
-          setGoogleUser={setGoogleUser}
-          handleSignOut={handleSignOut}
-        />
-      }
-    </div>
-  );
+  // return (
+  //   <div>
+  //     <Map />
+  //   </div >
+  // )
+   return (
+     <div className="App">
+       <Navbar
+         handleSignOut={handleSignOut}
+         googleUser={googleUser}
+         user={user}
+         setUser={setUser}
+         cartCount={cartCount}
+         setGoogleUser={setGoogleUser}
+         setCartItems={setCartItems}
+       />
+       {user || (Object.keys(googleUser).length !== 0) ?
+         <div className="content-shell">
+           <Routes>
+             <Route path="/" element={<HomePage0 addToCart={addToCart} setCartCount={setCartCount} />} />
+             <Route path="/testimonial" element={<Testimonial />} />
+             <Route path="/cart" element={<CartPage
+               cartItems={cartItems}
+               products={products}
+               addToCart={addToCart}
+               removeFromCart={removeFromCart}
+               setCartCount={setCartCount} />} />
+             <Route
+               path="/FindStore"
+               element={<FindStorePage />} />
+           </Routes>
+         </div>
+         :
+         <AuthPage
+           setUser={setUser}
+           setGoogleUser={setGoogleUser}
+           handleSignOut={handleSignOut}
+         />
+       }
+     </div>
+   );
 }
 
 export default App;

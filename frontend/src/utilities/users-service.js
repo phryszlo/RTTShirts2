@@ -31,6 +31,37 @@ export const getToken = () => {
   return token;
 };
 
+export const getCartItems = (email) => {
+  try {
+    const cartItems = JSON.parse(localStorage.getItem("userCart")) &&
+      JSON.parse(localStorage.getItem("userCart"))?.cartItems;
+    const userEmail = JSON.parse(localStorage.getItem("userCart")) &&
+      JSON.parse(localStorage.getItem("userCart"))?.email;
+
+      console.log(!userEmail ? 'no cart found' : `getCartItems: userEmail = ${JSON.stringify(userEmail)}`);
+    if (userEmail !== email) {
+      return [];
+    }
+    // console.log(`users-service: cart items = ${JSON.stringify(cartItems)}`)
+    if (!cartItems) {
+      return [];
+    }
+    return cartItems;
+  } catch (error) {
+    console.log(`getCartItems error: ${error}`);
+  }
+}
+export const putCartInStorage = (cartItems, email) => {
+  try {
+    // need to add an email prop 
+    console.log(`putCart fn. cartItems=${JSON.stringify(cartItems)}`);
+    localStorage.setItem("userCart", JSON.stringify({ cartItems, email: email }));
+
+  } catch (error) {
+    console.log(`getCartItems error: ${error}`);
+  }
+}
+
 // set the localStorage for the google user (default exp = 1 hour)
 export function setGoogleData(userData, credential) {
   try {
@@ -57,13 +88,12 @@ export async function logIn(userData) {
 }
 
 export function logOut() {
+  console.log(`logout`);
   localStorage.removeItem('data');
 }
 
 export const getUser = () => {
   const token = getToken();
-  // alert(JSON.stringify(JSON.parse(localStorage.getItem("data")).user.name))
-  // return token ? JSON.parse(localStorage.getItem("data.data.user")) : null;
   return token ? JSON.parse(localStorage.getItem("data")).user : null;
 };
 

@@ -17,10 +17,8 @@ function AuthForm({ isLogin, setUser }) {
   // 🔸🔸🔸🔸🔸
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const state = { name, email, password, confirm, error };
     const formData = { name, email, password};
     try {
-      // const  { confirm, error, ...formData } = state;
       let user = null;
       if (isLogin) {
         user = await logIn(formData)

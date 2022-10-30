@@ -8,7 +8,7 @@ function HomePage0({ addToCart }) {
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
-  };
+  }; 
   
   return (
     <>
@@ -31,7 +31,7 @@ function HomePage0({ addToCart }) {
       <Carousel.Item>
         <img
           className="carouselImage"
-          src="https://cdn.discordapp.com/attachments/1034195339739148308/1034914687239860225/22.jpg"
+          src="https://cdn.discordapp.com/attachments/1034195339739148308/1035553060048613427/here.jpg"
           alt="Third slide"
         />
       </Carousel.Item>

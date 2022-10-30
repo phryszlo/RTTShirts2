@@ -6,16 +6,6 @@
   margin-left: -45%;
   width: 120px;
 }
-.u-signout{
-  display: block;
-}
-.u-signout:hover{
-  border: solid black;
-  border-width: 1px;
-  display: block;
-  background-color: whitesmoke;
-  color: black;
-}
 .cartButton {
   position: absolute;
   margin-left: 80%;
@@ -69,7 +59,7 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #004AAD;
+  background-color: #183153;
   color: white;
 }
 /* Hide the link that should open and close the topnav on small screens */
@@ -79,15 +69,9 @@
 .bannerImage {
   width: 100%;
 }
-.carousel-control-prev-icon{
-  background-color: rgb(165, 165, 165);
-}
-.carousel-control-next-icon{
-  background-color: rgb(165, 165, 165);
-}
 .productContainer {
   /* border: solid black; */
-  width: 70vw;
+  width: 70%;
   height: 500px;
   margin-top: 20px;
   margin-left: 15%;
@@ -97,7 +81,7 @@
   display: flex;
   flex-flow: wrap;
   /* border: solid black; */
-  width: 70vw;
+  width: 100%;
   height: 90%;
   margin-top: 2%;
   margin-left: 2%;
@@ -105,16 +89,12 @@
 }
 .shirtImage {
   /* border: solid black; */
-  border-bottom: solid black;
-  border-width: 1px;
-  padding-bottom: 10px;
   display: flex;
   width: 90%;
   height: 70%;
   margin-left: 5%;
   justify-content: center;
 }
-
 .itemDescrip {
   /* border: solid black; */
   display: flex;
@@ -122,17 +102,15 @@
   width: 90%;
   height: 20%;
   margin-left: 5%;
-  margin-top: -5%;
+  margin-top: 5%;
 }
-.add-to-cart-btn {
-  display: block;
-}
-.add-to-cart-btn:hover {
-  border: solid black;
-  border-width: 1px;
-  display: block;
-  background-color: whitesmoke;
-  color: black;
+.addToCart {
+  /* border: solid black; */
+  background-color: #183153;
+  margin-left: 40%;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 5px;
 }
 .shirt {
   height: 100%;

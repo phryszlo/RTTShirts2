@@ -20,7 +20,7 @@ const tShirts = {
     },
     {
       id: 3,
-      name: "The RTT Lady",
+      name: `The Women's Pro`,
       price: "$18.99",
       detail:
         "This one is for girls. Its the same as the one before it, but different.",

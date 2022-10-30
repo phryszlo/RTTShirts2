@@ -39,9 +39,6 @@ export default function AuthPage({ setUser, setGoogleUser }) {
     // google.accounts.id.prompt();
   }, [])
 
-  // const loginOrSignup = (login) => {
-  //   setIsLogin(login);
-  // }
   return (
     <div className="auth-frame">
       <main className='auth-container'  >

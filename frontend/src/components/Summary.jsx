@@ -5,12 +5,12 @@ import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
-function Summary({ cartItems }) {
+function Summary({ cartItems, setCartCount }) {
   const [show, setShow] = useState();
   const [promoCode, setPromoCode] = useState('');
-  const [discount, setDiscount] = useState(0);
-  const [cartSubtotal, setCartSubtotal] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [discount, setDiscount] = useState(0.0);
+  const [cartSubtotal, setCartSubtotal] = useState(0.00);
+  const [cartTotal, setCartTotal] = useState(0.00);
 
 
   useEffect(() => {
@@ -23,10 +23,21 @@ function Summary({ cartItems }) {
 
   useEffect(() => {
     try {
+      const updateTotal = () => setCartTotal((cartSubtotal * 1.07 + 5).toFixed(2));
+      updateTotal();
     } catch (error) {
       console.log(`useEffect[cartItems] error: ${error}`);
     }
   }, [cartSubtotal])
+
+  useEffect(() => {
+    try {
+      calculatePrice();
+    } catch (error) {
+      console.log(`useEffect[cartItems] error: ${error}`);
+    }
+  }, [discount])
+
 
   const calculatePrice = () => {
     let total = 0.00, count = 0;
@@ -34,21 +45,25 @@ function Summary({ cartItems }) {
       let cost = parseFloat(product.price.substring(1)) * product.qty;
       total += cost;
       count += product.qty;
+      setCartCount(count);
     })
-    total -= (total * discount);
+    if (discount) total -= (total * discount);
     setCartSubtotal(total);
   }
 
   function applyDiscount() {
     try {
+      console.log(`applyDiscount code matches`)
       if (promoCode === 'PERSCHOLAS') {
+        console.log(`PERSCHOLAS`);
         setDiscount(.1)
       }
       else {
+
         console.log(`code no good`);
         setDiscount(0);
       }
-      calculatePrice();
+      // calculatePrice();
     } catch (error) {
       console.log(`applyDiscount error: ${error}`);
     }
@@ -82,7 +97,9 @@ function Summary({ cartItems }) {
             <Button
               className="apply-btn"
               type="button"
-              onClick={() => applyDiscount()}>
+              onClick={() => {
+                return applyDiscount()
+              }}>
               apply
             </Button>
           </span>
@@ -104,7 +121,13 @@ function Summary({ cartItems }) {
             <span className="cart-value-label">Estimated Tax: </span>
             <span className="cart-value">
               ${cartSubtotal && (cartSubtotal * .07).toFixed(2)}
-              </span>
+            </span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span className="cart-value-label total">Total: </span>
+            <span className="cart-value">
+              {`$${cartTotal}`}
+            </span>
           </ListGroup.Item>
           <Button className="checkout-btn">CHECKOUT</Button>
         </ListGroup>

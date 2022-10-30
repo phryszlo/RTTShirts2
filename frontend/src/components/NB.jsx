@@ -5,10 +5,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logOut } from "../utilities/users-service";
 import { useEffect } from "react";
+import { FaShoppingCart } from "react-icons/fa";
+import { BsCart } from "react-icons/bs";
+
 // CREATE COMPONENT
-const Navbar = ({ user, googleUser, handleSignOut, setUser }) => {
+const Navbar = ({ user, googleUser, setGoogleUser, setCartItems, handleSignOut, setUser, cartCount }) => {
   const [index, setIndex] = useState(0);
   const [userObj, setUserObj] = useState(null);
+
+
   useEffect(() => {
     if (user) {
       // alert(JSON.stringify(user))
@@ -16,8 +21,10 @@ const Navbar = ({ user, googleUser, handleSignOut, setUser }) => {
       setUserObj(user);
     }
   }, []);
+
+  // handleLogOut is for regular user logout. handleSignOff is for google user (in App.js)
   function handleLogOut() {
-    // Delegate to the users-service
+    console.log(`cleared state from user signout`)
     logOut();
     setUser(null);
   }
@@ -46,7 +53,7 @@ const Navbar = ({ user, googleUser, handleSignOut, setUser }) => {
                 />
               </div>
               <button className="g-signout" onClick={(e) => handleSignOut(e)}>
-                logoff
+                sign out
               </button>
             </div>
           ) : (
@@ -67,13 +74,18 @@ const Navbar = ({ user, googleUser, handleSignOut, setUser }) => {
        
     {/*{Object.keys(googleUser).length !== 0 || user && */}
       <div className="topnav" id="myTopnav">
-        <Link as={Link} to="products">
-          Products
+        <Link to="testimonial">
+          Testimonials
         </Link>
-        <Link as={Link} to="cart">
-          Cart
+        <Link to="FindStore">
+          Find Store
         </Link>
-        <Link as={Link} to="/">
+        <Link to="cart" style={{fontSize: '17px'}}>
+        Cart {" "} 
+        <BsCart style={{backgroundColor: 'transparent', marginLeft: '.5em', fontSize: '17.5px'}} /> 
+        <span style={{fontSize: '14px', backgroundColor: 'transparent'}}>{cartCount}</span>
+        </Link>
+        <Link to="/">
           Home
         </Link>
       </div>
